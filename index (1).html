@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valentine's Day</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-image: url('https://example.com/your-heart-background-image.jpg'); /* Replace with your heart background image URL */
+      background-size: cover;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .question-container {
+      max-width: 600px;
+      margin: auto;
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .question {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      font-size: 18px;
+      margin: 5px;
+      cursor: pointer;
+      border: none;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-yes {
+      background-color: #4caf50;
+      color: #fff;
+    }
+
+    .btn-no {
+      background-color: #e74c3c;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="question-container">
+    <div class="question">Will you be my valentine?</div>
+    <button class="btn btn-yes" onclick="resizeButton()">Yes</button>
+    <button class="btn btn-no" onclick="endMessage()">No</button>
+  </div>
+
+  <script>
+    let buttonSize = 20;
+
+    function resizeButton() {
+      buttonSize += 5;
+      document.querySelector('.btn-yes').style.fontSize = `${buttonSize}px`;
+      if (buttonSize > 40) {
+        nextQuestion();
+      }
+    }
+
+    function nextQuestion() {
+      document.querySelector('.question').innerText = 'Sus, gusto mo pala ko e';
+      document.querySelector('.btn-yes').innerText = 'Yes';
+      document.querySelector('.btn-yes').style.fontSize = '40px';
+      document.querySelector('.btn-yes').onclick = () => furtherAnnouncement();
+      document.querySelector('.btn-no').style.display = 'none';
+    }
+
+    function furtherAnnouncement() {
+      document.querySelector('.question').innerText = "Thanks, please wait for further announcement for the online date and its details. I miss you.";
+      document.querySelector('.btn-yes').innerText = 'Nukaba ako lang to, u want some noodles?';
+      document.querySelector('.btn-yes').style.fontSize = '20px';
+      document.querySelector('.btn-yes').onclick = () => sendNoodles();
+      document.querySelector('.btn-no').style.display = 'inline-block';
+      document.querySelector('.btn-no').innerText = 'No';
+    }
+
+    function sendNoodles() {
+      document.querySelector('.question').innerText = "Please wait for the Host to send it to your email. Happy Valentine's Day, Marius.";
+      document.querySelector('.btn-yes').style.display = 'none';
+      document.querySelector('.btn-no').style.display = 'none';
+    }
+  </script>
+
+</body>
+</html>
